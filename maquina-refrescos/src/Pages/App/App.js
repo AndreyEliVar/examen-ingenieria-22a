@@ -1,5 +1,6 @@
 import styles from '../../Styles/App.module.css';
 import SeccionRefrescos from '../../Components/SeccionRefrescos';
+import SeccionDinero from '../../Components/SeccionDinero';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
           <SeccionRefrescos cantidad="10" precio="650" />
         </div>
         <div className={styles.seccionInferior}>
-            
+          <SeccionDinero />
         </div>
         </div>
     </div>

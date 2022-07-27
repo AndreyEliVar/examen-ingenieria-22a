@@ -14,7 +14,7 @@ export default function SeccionRefrescos(props) {
     <div >
         <div className={styles.contenido}>
         <div className={styles.button}>
-                <Button sx={{backgroundColor: "#1AB3F6", width: "235px"}} variant="contained">Eliminar Seleccionados</Button>
+                <Button sx={{backgroundColor: "#1AB3F6", width: "235px", fontSize: "14px", fontFamily: "Roboto Slab"}} variant="contained">Eliminar Seleccionados</Button>
         </div>
         <div className={styles.cards}>
             

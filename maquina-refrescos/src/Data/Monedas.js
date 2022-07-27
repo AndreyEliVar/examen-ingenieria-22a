@@ -26,3 +26,5 @@ let monedas = [
         valor: 1000,
     }
 ]
+
+export default monedas;

@@ -1,0 +1,48 @@
+
+.contenido {
+  width: 585px;
+  height: 273px;
+  background: #549C97;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.mapButtons {
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 225px;
+}
+
+
+.deleteSelections {
+    margin-left: 50%;
+    margin-top: 2%;
+    height: 40px;
+}
+
+.button {
+    margin-left: 20px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 12px;
+
+    display: flex;
+    align-items:flex-end;
+    letter-spacing: 0.15px;
+    color: #FFFFFF;
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
