@@ -5,8 +5,12 @@ function App() {
   return (
     <div className="App">
         <div className={styles.contenido}>
+          <div className={styles.seccionSuperior}>
           <SeccionRefrescos cantidad="10" precio="650" />
-          
+        </div>
+        <div className={styles.seccionInferior}>
+            
+        </div>
         </div>
     </div>
   );
