@@ -4,7 +4,10 @@ import SeccionRefrescos from '../../Components/SeccionRefrescos';
 function App() {
   return (
     <div className="App">
-        <SeccionRefrescos cantidad="10" precio="650" />
+        <div className={styles.contenido}>
+          <SeccionRefrescos cantidad="10" precio="650" />
+          
+        </div>
     </div>
   );
 }
