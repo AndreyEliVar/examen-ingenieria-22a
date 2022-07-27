@@ -1,22 +1,67 @@
-import styles from '../../Styles/DesgloseDinero.module.css';
-import Button from '@mui/material/Button';
-
+import styles from "../../Styles/DesgloseDinero.module.css";
+import Button from "@mui/material/Button";
 
 export default function DesgloseDinero(props) {
-        
-
     return (
         <div className={styles.contenido}>
             <h1 className={styles.titulo}>Desglose</h1>
             <div className={styles.desglose}>
-            
+                {props.refrescosSeleccionados.map((refresco, index) => {
+                    return refresco.cantidad > 0 ? (
+                        <div className={styles.refresco} key={index}>
+                            <div className={styles.textoDesglose}>
+                                <span className={styles.nombreRefresco}>
+                                    {refresco.nombre}
+                                </span>
+                                <Button
+                                    variant="text"
+                                    sx={{
+                                        fontSize: "25px",
+                                        fontFamily: "Roboto Slab",
+                                        height: "15px",
+                                        paddingBottom: "10px",
+                                        color: "#FFFFFF",
+                                    }}
+                                >
+                                    -
+                                </Button>
+                                <span className={styles.T}>
+                                    x {refresco.cantidad}
+                                </span>
+                                <Button
+                                    variant="text"
+                                    sx={{
+                                        fontSize: "25px",
+                                        fontFamily: "Roboto Slab",
+                                        height: "15px",
+                                        paddingBottom: "10px",
+                                        color: "#FFFFFF",
+                                    }}
+                                >
+                                    +
+                                </Button>
+                            </div>
+                        </div>
+                    ) : null;
+                })}
             </div>
             <div className={styles.seccionValores}>
                 <h1 className={styles.texto}>Costo Total: ₡ {props.monto}</h1>
-                <h1 className={styles.texto} >Vuelto: ₡ {props.vuelto}</h1>
+                <h1 className={styles.texto}>Vuelto: ₡ {props.vuelto}</h1>
             </div>
             <div className={styles.seccionBotones}>
-                <Button sx={{backgroundColor: "#1AB3F6", width: "171px", fontSize: "14px", fontFamily: "Roboto Slab"}} variant="contained">Pagar</Button>            
+                <Button
+                    sx={{
+                        backgroundColor: "#1AB3F6",
+                        width: "171px",
+                        fontSize: "14px",
+                        fontFamily: "Roboto Slab",
+                    }}
+                    
+                    variant="contained"
+                >
+                    Pagar
+                </Button>
             </div>
         </div>
     );

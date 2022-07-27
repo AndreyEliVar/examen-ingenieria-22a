@@ -6,8 +6,18 @@ import Refrescos from '../../Data/Refrescos';
 export default function SeccionRefrescos(props) {
 
 
-  const handleClick = () => {
-    console.log("Hi Im a button");
+  const handleClick = (name) => {
+    props.setRefrescosSeleccionados(
+      props.refrescosSeleccionados.map((refresco, index) => {
+        if (refresco.nombre === name) {
+          return {
+            ...refresco,
+            cantidad: refresco.cantidad + 1
+          }
+        }
+        return refresco;
+      })
+    );
   }
 
   return (
@@ -22,7 +32,7 @@ export default function SeccionRefrescos(props) {
                 Refrescos.map((refresco, index) => {
                     return (
                         <div className={styles.tarjeta} key={index}>
-                            <TarjetaRefresco onClick={handleClick} cantidad={refresco.cantidad} precio={refresco.precio} imagen={refresco.imagen} />
+                            <TarjetaRefresco onClick={() => handleClick(refresco.nombre)} cantidad={refresco.cantidad} precio={refresco.precio} imagen={refresco.imagen} />
                         </div>
                     )
                 }

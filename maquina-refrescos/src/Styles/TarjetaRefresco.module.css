@@ -19,6 +19,7 @@
 .imagen {
   width: 123px;
   height: 114px;
+  cursor: pointer;
 }
 
 .texto {
