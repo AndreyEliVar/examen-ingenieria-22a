@@ -11,3 +11,16 @@
   
   background: #4A506C;
 }
+
+.seccionInferior {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 25px;
+}
+
+.seccionDesglose {
+  margin-left: 35px;
+}

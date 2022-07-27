@@ -1,0 +1,68 @@
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 489px;
+  height: 369px;
+  
+  background: #549C97;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.desglose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 408px;
+    height: 142px;
+
+}
+
+.seccionValores {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    letter-spacing: 0.15px;
+    
+    color: #FFFFFF;
+
+    flex: none;
+    align-self: stretch;
+    flex-grow: 0;
+
+    margin-right: 20px;
+}
+
+.texto {
+    
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.titulo {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 23px;
+    
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #FFFFFF;
+}
+
+.seccionBotones {
+    margin-top: 60px;
+}
