@@ -1,8 +1,9 @@
 import styles from '../../Styles/DesgloseDinero.module.css';
 import Button from '@mui/material/Button';
 
+
 export default function DesgloseDinero(props) {
-    
+        
 
     return (
         <div className={styles.contenido}>
