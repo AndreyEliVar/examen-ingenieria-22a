@@ -1,11 +1,10 @@
-import '../../Styles/App.module.css';
+import styles from '../../Styles/App.module.css';
+import TarjetaRefresco from '../../Components/TarjetaRefresco';
 
 function App() {
   return (
     <div className="App">
-        <p>
-          Edit and save to reload.
-        </p>
+        <TarjetaRefresco cantidad="10" precio="650" />
     </div>
   );
 }

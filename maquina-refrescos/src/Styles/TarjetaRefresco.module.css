@@ -1,0 +1,51 @@
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 195px;
+  height: 200px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+
+  max-width: 195px;
+  max-height: 200px;
+}
+
+
+.imagen {
+  width: 123px;
+  height: 114px;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cantidad {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 700;
+    align-items: center;
+    letter-spacing: -0.017em;
+    color: #000000;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: -0.017em;
+
+    color: #000000;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
