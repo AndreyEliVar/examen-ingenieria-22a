@@ -2,6 +2,37 @@ import styles from "../../Styles/DesgloseDinero.module.css";
 import Button from "@mui/material/Button";
 
 export default function DesgloseDinero(props) {
+
+    const handleClickMenos = (nombre) => {
+        props.setRefrescosSeleccionados(
+            props.refrescosSeleccionados.map((refresco, index) => {
+                if (refresco.nombre === nombre) {
+                    return {
+                        ...refresco,
+                        cantidad: refresco.cantidad - 1,
+                    };
+                }
+                return refresco;
+            }
+            )
+        )
+    }
+
+    const handleClickMas = (nombre) => {
+        props.setRefrescosSeleccionados(
+            props.refrescosSeleccionados.map((refresco, index) => {
+                if (refresco.nombre === nombre) {
+                    return {
+                        ...refresco,
+                        cantidad: refresco.cantidad + 1,
+                    };
+                }
+                return refresco;
+            }
+            )
+        )
+    }
+
     return (
         <div className={styles.contenido}>
             <h1 className={styles.titulo}>Desglose</h1>
@@ -22,6 +53,7 @@ export default function DesgloseDinero(props) {
                                         paddingBottom: "10px",
                                         color: "#FFFFFF",
                                     }}
+                                    onClick={() => handleClickMenos(refresco.nombre)}
                                 >
                                     -
                                 </Button>
@@ -37,6 +69,7 @@ export default function DesgloseDinero(props) {
                                         paddingBottom: "10px",
                                         color: "#FFFFFF",
                                     }}
+                                    onClick={() => handleClickMas(refresco.nombre)}
                                 >
                                     +
                                 </Button>
