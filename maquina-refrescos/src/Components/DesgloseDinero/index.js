@@ -1,7 +1,13 @@
 import styles from "../../Styles/DesgloseDinero.module.css";
 import Button from "@mui/material/Button";
+import TarjetaAlerta from "../../Components/TarjetaAlerta";
+import { useState } from "react";
 
 export default function DesgloseDinero(props) {
+    const [abiertoAlerta1, setAbiertoAlerta1] = useState(false);
+    const [abiertoAlerta2, setAbiertoAlerta2] = useState(false);
+    const [textoAlerta1, setTextoAlerta1] = useState("");
+    const [textoAlerta2, setTextoAlerta2] = useState("");
 
     const handleClickMenos = (nombre) => {
         props.setRefrescosSeleccionados(
@@ -37,6 +43,7 @@ export default function DesgloseDinero(props) {
         <div className={styles.contenido}>
             <h1 className={styles.titulo}>Desglose</h1>
             <div className={styles.desglose}>
+            <TarjetaAlerta abierto={abiertoAlerta1} mensaje={textoAlerta1}/>
                 {props.refrescosSeleccionados.map((refresco, index) => {
                     return refresco.cantidad > 0 ? (
                         <div className={styles.refresco} key={index}>
@@ -83,6 +90,7 @@ export default function DesgloseDinero(props) {
                 <h1 className={styles.texto}>Vuelto: ₡ {props.vuelto}</h1>
             </div>
             <div className={styles.seccionBotones}>
+                <TarjetaAlerta abierto={abiertoAlerta2} mensaje={textoAlerta2} />
                 <Button
                     sx={{
                         backgroundColor: "#1AB3F6",
