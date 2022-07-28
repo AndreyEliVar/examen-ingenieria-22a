@@ -10,6 +10,8 @@ function App() {
     const [montoTotal, setMontoTotal] = useState(0);
     const [vuelto, setVuelto] = useState(0);
     const [monedasVuelto, setMonedasVuelto] = useState([]);
+    const [abiertoAlertaCantidad, setAbiertoAlertaCantidad] = useState(false);
+    const [textoAlertaCantidad, setTextoAlertaCantidad] = useState("");
     const [refrescosSeleccionados, setRefrescosSeleccionados] = useState([
         { nombre: "Coca-Cola", cantidad: 0 },
         { nombre: "Fanta", cantidad: 0 },
@@ -33,6 +35,10 @@ function App() {
       }
     }, [montoPago, montoTotal]);
 
+    const handleClickPago = () => {
+      console.log("Pago", montoPago);
+    }
+
     return (
         <div className="App">
             <div className={styles.contenido}>
@@ -40,6 +46,10 @@ function App() {
                     <SeccionRefrescos
                         refrescosSeleccionados={refrescosSeleccionados}
                         setRefrescosSeleccionados={setRefrescosSeleccionados}
+                        setAbiertoAlertaCantidad={setAbiertoAlertaCantidad}
+                        setTextoAlertaCantidad={setTextoAlertaCantidad}
+                        abiertoAlertaCantidad={abiertoAlertaCantidad}
+                        textoAlertaCantidad={textoAlertaCantidad}
                         cantidad="10"
                         precio="650"
                     />
@@ -56,7 +66,12 @@ function App() {
                           monto={montoTotal} 
                           vuelto={vuelto}
                           refrescosSeleccionados={refrescosSeleccionados}
-                          setRefrescosSeleccionados={setRefrescosSeleccionados} 
+                          setRefrescosSeleccionados={setRefrescosSeleccionados}
+                          setAbiertoAlertaCantidad={setAbiertoAlertaCantidad}
+                          setTextoAlertaCantidad={setTextoAlertaCantidad}
+                          abiertoAlertaCantidad={abiertoAlertaCantidad}
+                          textoAlertaCantidad={textoAlertaCantidad}
+                          handleClickPago={handleClickPago}
                         />
                     </div>
                 </div>

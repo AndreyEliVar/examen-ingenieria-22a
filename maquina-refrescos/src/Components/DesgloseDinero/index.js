@@ -1,12 +1,12 @@
 import styles from "../../Styles/DesgloseDinero.module.css";
 import Button from "@mui/material/Button";
 import TarjetaAlerta from "../../Components/TarjetaAlerta";
+import {cantidadRefrescosValida} from "../../logic/VerificadorErrores";
 import { useState } from "react";
 
 export default function DesgloseDinero(props) {
-    const [abiertoAlerta1, setAbiertoAlerta1] = useState(false);
+    
     const [abiertoAlerta2, setAbiertoAlerta2] = useState(false);
-    const [textoAlerta1, setTextoAlerta1] = useState("");
     const [textoAlerta2, setTextoAlerta2] = useState("");
 
     const handleClickMenos = (nombre) => {
@@ -25,25 +25,40 @@ export default function DesgloseDinero(props) {
     }
 
     const handleClickMas = (nombre) => {
-        props.setRefrescosSeleccionados(
-            props.refrescosSeleccionados.map((refresco, index) => {
-                if (refresco.nombre === nombre) {
-                    return {
-                        ...refresco,
-                        cantidad: refresco.cantidad + 1,
-                    };
+        let cantidadActual = props.refrescosSeleccionados.find(
+            (refresco) => refresco.nombre === nombre
+        ).cantidad;
+        console.log("Cantidad", cantidadActual);
+        let verificarError = cantidadRefrescosValida(nombre, cantidadActual + 1);
+        if (verificarError.cantidadRefrescos) {
+            props.setRefrescosSeleccionados(
+                props.refrescosSeleccionados.map((refresco, index) => {
+                    if (refresco.nombre === nombre) {
+                        return {
+                            ...refresco,
+                            cantidad: refresco.cantidad + 1,
+                        };
+                    }
+                    return refresco;
                 }
-                return refresco;
-            }
+                )
             )
-        )
+        } else {
+            props.setAbiertoAlertaCantidad(true);
+            props.setTextoAlertaCantidad(verificarError.textoError);
+            setTimeout(() => {
+                props.setAbiertoAlertaCantidad(false);
+            }, 1500);
+        }
+        
     }
+
 
     return (
         <div className={styles.contenido}>
             <h1 className={styles.titulo}>Desglose</h1>
             <div className={styles.desglose}>
-            <TarjetaAlerta abierto={abiertoAlerta1} mensaje={textoAlerta1}/>
+            <TarjetaAlerta abierto={props.abiertoAlertaCantidad} mensaje={props.textoAlertaCantidad}/>
                 {props.refrescosSeleccionados.map((refresco, index) => {
                     return refresco.cantidad > 0 ? (
                         <div className={styles.refresco} key={index}>
@@ -98,7 +113,7 @@ export default function DesgloseDinero(props) {
                         fontSize: "14px",
                         fontFamily: "Roboto Slab",
                     }}
-                    
+                    onClick={props.handleClickPago}
                     variant="contained"
                 >
                     Pagar
