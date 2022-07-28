@@ -3,13 +3,13 @@ import SeccionRefrescos from "../../Components/SeccionRefrescos";
 import SeccionDinero from "../../Components/SeccionDinero";
 import DesgloseDinero from "../../Components/DesgloseDinero";
 import {calcularTotal, calcularCambio} from "../../logic/Calculadora"
+import {realizarVerificacionPago} from "../../logic/VerificadorErrores"
 import { useState, useEffect } from "react";
 
 function App() {
     const [montoPago, setMontoPago] = useState(0);
     const [montoTotal, setMontoTotal] = useState(0);
     const [vuelto, setVuelto] = useState(0);
-    const [monedasVuelto, setMonedasVuelto] = useState([]);
     const [abiertoAlertaCantidad, setAbiertoAlertaCantidad] = useState(false);
     const [textoAlertaCantidad, setTextoAlertaCantidad] = useState("");
     const [abiertoAlertaPago, setAbiertoAlertaPago] = useState(false);
@@ -29,16 +29,21 @@ function App() {
       if (montoPago > 0 && montoTotal > 0) {
         let values = calcularCambio(montoTotal, montoPago);
         setVuelto(values.cambio);
-        setMonedasVuelto(values.monedas);
       }
       if (montoPago === 0) {
         setVuelto(0);
-        setMonedasVuelto([]);
       }
     }, [montoPago, montoTotal]);
 
     const handleClickPago = () => {
-      console.log("Pago", montoPago);
+      let puedoPagar = realizarVerificacionPago(montoPago, montoTotal);
+      if (puedoPagar.puedoPagar === false) {
+        setAbiertoAlertaPago(true);
+        setTextoAlertaPago(puedoPagar.error);
+        setTimeout(() => {
+          setAbiertoAlertaPago(false);
+        }, 2500);
+      }
     }
 
     return (

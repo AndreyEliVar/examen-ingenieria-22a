@@ -12,15 +12,6 @@ export default function TarjetaAlerta(props) {
       <Collapse in={props.abierto}>
         <Alert
         severity='info'
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-            >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-          }
           sx={{ mb: 2 }}
         >
           {props.mensaje}

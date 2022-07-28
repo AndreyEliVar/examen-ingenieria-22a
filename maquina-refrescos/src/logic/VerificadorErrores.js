@@ -26,9 +26,16 @@ export function cantidadMonedasValida(montoIngresado, totalPagar) {
 
 export function realizarVerificacionPago(montoIngresado, totalPagar) {
     let puedoPagar = true;
-    let vuelto = calcularCambio(montoIngresado, totalPagar);
+    let vuelto = calcularCambio(totalPagar, montoIngresado);
+    let montoValido = cantidadMonedasValida(montoIngresado, totalPagar);
     let error = "";
-    if (vuelto.residuo > 0) {
+    if (montoValido.cantidadMonedas === false) {
+        error = montoValido.textoError;
+        puedoPagar = false;
+    } else if ( totalPagar === 0) {
+        error = "No hay nada que pagar";
+        puedoPagar = false;
+    } else if (vuelto.residuo > 0) {
         error = "Fallo al realizar la compra";
         puedoPagar = false;
     }
