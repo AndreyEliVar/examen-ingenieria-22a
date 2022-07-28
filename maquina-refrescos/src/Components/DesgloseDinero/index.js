@@ -6,8 +6,7 @@ import { useState } from "react";
 
 export default function DesgloseDinero(props) {
     
-    const [abiertoAlerta2, setAbiertoAlerta2] = useState(false);
-    const [textoAlerta2, setTextoAlerta2] = useState("");
+    
 
     const handleClickMenos = (nombre) => {
         props.setRefrescosSeleccionados(
@@ -28,7 +27,6 @@ export default function DesgloseDinero(props) {
         let cantidadActual = props.refrescosSeleccionados.find(
             (refresco) => refresco.nombre === nombre
         ).cantidad;
-        console.log("Cantidad", cantidadActual);
         let verificarError = cantidadRefrescosValida(nombre, cantidadActual + 1);
         if (verificarError.cantidadRefrescos) {
             props.setRefrescosSeleccionados(
@@ -48,7 +46,7 @@ export default function DesgloseDinero(props) {
             props.setTextoAlertaCantidad(verificarError.textoError);
             setTimeout(() => {
                 props.setAbiertoAlertaCantidad(false);
-            }, 1500);
+            }, 2500);
         }
         
     }
@@ -105,7 +103,7 @@ export default function DesgloseDinero(props) {
                 <h1 className={styles.texto}>Vuelto: ₡ {props.vuelto}</h1>
             </div>
             <div className={styles.seccionBotones}>
-                <TarjetaAlerta abierto={abiertoAlerta2} mensaje={textoAlerta2} />
+                <TarjetaAlerta abierto={props.abiertoAlertaPago} mensaje={props.textoAlertaPago} />
                 <Button
                     sx={{
                         backgroundColor: "#1AB3F6",

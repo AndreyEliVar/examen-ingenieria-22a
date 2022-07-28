@@ -25,7 +25,7 @@ export default function SeccionRefrescos(props) {
             props.setTextoAlertaCantidad(verificarError.textoError);
             setTimeout(() => {
                 props.setAbiertoAlertaCantidad(false);
-            }, 1500);
+            }, 2500);
         }
     };
 

@@ -12,6 +12,8 @@ function App() {
     const [monedasVuelto, setMonedasVuelto] = useState([]);
     const [abiertoAlertaCantidad, setAbiertoAlertaCantidad] = useState(false);
     const [textoAlertaCantidad, setTextoAlertaCantidad] = useState("");
+    const [abiertoAlertaPago, setAbiertoAlertaPago] = useState(false);
+    const [textoAlertaPago, setTextoAlertaPago] = useState("");
     const [refrescosSeleccionados, setRefrescosSeleccionados] = useState([
         { nombre: "Coca-Cola", cantidad: 0 },
         { nombre: "Fanta", cantidad: 0 },
@@ -72,6 +74,8 @@ function App() {
                           abiertoAlertaCantidad={abiertoAlertaCantidad}
                           textoAlertaCantidad={textoAlertaCantidad}
                           handleClickPago={handleClickPago}
+                          abiertoAlertaPago={abiertoAlertaPago}
+                          textoAlertaPago={textoAlertaPago}
                         />
                     </div>
                 </div>
