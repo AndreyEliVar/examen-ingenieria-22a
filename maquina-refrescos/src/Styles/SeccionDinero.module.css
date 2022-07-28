@@ -1,21 +1,19 @@
-
 .contenido {
-  width: 585px;
-  height: 273px;
-  background: #549C97;
-  border: 1px solid #000000;
-  border-radius: 10px;
+    width: 585px;
+    height: 273px;
+    background: #549c97;
+    border: 1px solid #000000;
+    border-radius: 10px;
 }
 
 .mapButtons {
-  display: flex;
-  flex-direction: row;
-  align-items:flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: 225px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 225px;
 }
-
 
 .deleteSelections {
     margin-left: 50%;
@@ -37,9 +35,9 @@
     line-height: 12px;
 
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     letter-spacing: 0.15px;
-    color: #FFFFFF;
+    color: #ffffff;
 
     flex: none;
     order: 1;

@@ -1,4 +1,3 @@
-
 let monedas = [
     {
         id: 1,
@@ -24,7 +23,7 @@ let monedas = [
         id: 5,
         cantidad: 0,
         valor: 1000,
-    }
-]
+    },
+];
 
 export default monedas;

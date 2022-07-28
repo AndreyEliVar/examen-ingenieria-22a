@@ -2,11 +2,13 @@ import styles from "../../Styles/SeccionRefrescos.module.css";
 import TarjetaRefresco from "../../Components/TarjetaRefresco";
 import Button from "@mui/material/Button";
 import Refrescos from "../../Data/Refrescos";
-import {cantidadRefrescosValida} from "../../logic/VerificadorErrores";
+import { cantidadRefrescosValida } from "../../logic/VerificadorErrores";
 
 export default function SeccionRefrescos(props) {
     const handleClick = (name) => {
-        let cantidadActual = props.refrescosSeleccionados.find( (refresco) => refresco.nombre === name ).cantidad;
+        let cantidadActual = props.refrescosSeleccionados.find(
+            (refresco) => refresco.nombre === name
+        ).cantidad;
         let verificarError = cantidadRefrescosValida(name, cantidadActual + 1);
         if (verificarError.cantidadRefrescos) {
             props.setRefrescosSeleccionados(
@@ -31,12 +33,12 @@ export default function SeccionRefrescos(props) {
 
     const handleClickClear = () => {
         props.setRefrescosSeleccionados([
-          { nombre: "Coca-Cola", cantidad: 0 },
-          { nombre: "Fanta", cantidad: 0 },
-          { nombre: "Pepsi", cantidad: 0 },
-          { nombre: "Sprite", cantidad: 0 },
-      ]);
-    }
+            { nombre: "Coca-Cola", cantidad: 0 },
+            { nombre: "Fanta", cantidad: 0 },
+            { nombre: "Pepsi", cantidad: 0 },
+            { nombre: "Sprite", cantidad: 0 },
+        ]);
+    };
 
     return (
         <div>

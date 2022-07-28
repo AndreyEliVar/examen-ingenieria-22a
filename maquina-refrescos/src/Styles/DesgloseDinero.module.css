@@ -1,15 +1,14 @@
-
 .contenido {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  width: 489px;
-  height: 440px;
-  
-  background: #549C97;
-  border: 1px solid #000000;
-  border-radius: 10px;
+    width: 489px;
+    height: 440px;
+
+    background: #549c97;
+    border: 1px solid #000000;
+    border-radius: 10px;
 }
 
 .desglose {
@@ -17,28 +16,27 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    
+
     width: 80%;
     height: 142px;
     margin-top: 30px;
     margin-bottom: 0px;
-
 }
 
 .seccionValores {
-    font-family: 'Roboto Slab';
+    font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
     line-height: 16px;
-    
+
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     text-align: right;
     letter-spacing: 0.15px;
-    
-    color: #FFFFFF;
+
+    color: #ffffff;
 
     flex: none;
     align-self: stretch;
@@ -48,21 +46,20 @@
 }
 
 .texto {
-    
     margin-top: 20px;
     margin-bottom: 0px;
 }
 
 .titulo {
-    font-family: 'Roboto Slab';
+    font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
     line-height: 23px;
-    
+
     margin-top: 10px;
     margin-bottom: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .seccionBotones {
@@ -78,13 +75,13 @@
 }
 
 .textoDesglose {
-    font-family: 'Roboto Slab';
+    font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
     line-height: 16px;
-    
+
     margin-top: 0px;
     margin-bottom: 10px;
-    color: #FFFFFF;
+    color: #ffffff;
 }

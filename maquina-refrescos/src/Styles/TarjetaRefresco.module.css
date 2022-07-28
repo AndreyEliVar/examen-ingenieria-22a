@@ -1,25 +1,23 @@
-
 .contenido {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  width: 195px;
-  height: 200px;
-  border-radius: 10px;
-  border: 1px solid #000000;
+    width: 195px;
+    height: 200px;
+    border-radius: 10px;
+    border: 1px solid #000000;
 
-  max-width: 195px;
-  max-height: 200px;
-  background: #EEEEEE;
+    max-width: 195px;
+    max-height: 200px;
+    background: #eeeeee;
 }
 
-
 .imagen {
-  width: 123px;
-  height: 114px;
-  cursor: pointer;
+    width: 123px;
+    height: 114px;
+    cursor: pointer;
 }
 
 .texto {
@@ -29,7 +27,7 @@
 }
 
 .cantidad {
-    font-family: 'Roboto Slab';
+    font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
     align-items: center;
@@ -40,7 +38,7 @@
 }
 
 .precio {
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
