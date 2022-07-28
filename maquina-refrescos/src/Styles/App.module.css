@@ -1,15 +1,24 @@
 
+.contenedor {
+  background: #4A506C;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .contenido {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
+  width: 80%;
   height: 100vh;
 
   
-  background: #4A506C;
+  
 }
 
 .seccionInferior {
@@ -23,4 +32,15 @@
 
 .seccionDesglose {
   margin-left: 35px;
+}
+
+.alerta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 18%;
+  margin-right: 2%;
+  background: #4A506C;
+
 }

@@ -19,7 +19,7 @@ export function calcularTotal (refrescosSeleccionados) {
 export function calcularCambio (totalPagar, montoIngresado) {
     let cambio = 0;
     let copyCambio = 0;
-    let monedas = [{"25": 0}, {"50": 0}, {"100": 0}, {"500": 0}];
+    let monedas = [{moneda: "25", cantidad: 0}, {moneda: "50", cantidad: 0}, {moneda: "100", cantidad: 0}, {moneda: "500", cantidad: 0}];
     if (montoIngresado > totalPagar) {
         cambio = montoIngresado - totalPagar;
         copyCambio = cambio;
@@ -32,7 +32,7 @@ export function calcularCambio (totalPagar, montoIngresado) {
                 while (cambio >= moneda.valor && moneda.cantidad > 0) {
                     cambio -= moneda.valor;
                     moneda.cantidad--;
-                    monedas[moneda.id - 1]["" + moneda.valor]++;
+                    monedas[moneda.id - 1].cantidad++;
                 }
             }
         })

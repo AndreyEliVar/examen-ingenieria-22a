@@ -2,8 +2,10 @@ import styles from "../../Styles/App.module.css";
 import SeccionRefrescos from "../../Components/SeccionRefrescos";
 import SeccionDinero from "../../Components/SeccionDinero";
 import DesgloseDinero from "../../Components/DesgloseDinero";
+import AlertaPago from "../../Components/AlertaPago";
 import {calcularTotal, calcularCambio} from "../../logic/Calculadora"
 import {realizarVerificacionPago} from "../../logic/VerificadorErrores"
+import {pago} from "../../logic/RealizarPago"
 import { useState, useEffect } from "react";
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
     const [textoAlertaCantidad, setTextoAlertaCantidad] = useState("");
     const [abiertoAlertaPago, setAbiertoAlertaPago] = useState(false);
     const [textoAlertaPago, setTextoAlertaPago] = useState("");
+    const [informePago, setInformePago] = useState({});
+    const [abrirInformePago, setAbrirInformePago] = useState(false);
     const [refrescosSeleccionados, setRefrescosSeleccionados] = useState([
         { nombre: "Coca-Cola", cantidad: 0 },
         { nombre: "Fanta", cantidad: 0 },
@@ -37,17 +41,34 @@ function App() {
 
     const handleClickPago = () => {
       let puedoPagar = realizarVerificacionPago(montoPago, montoTotal);
+      let values = calcularCambio(montoTotal, montoPago);
+      console.log(values);
       if (puedoPagar.puedoPagar === false) {
         setAbiertoAlertaPago(true);
         setTextoAlertaPago(puedoPagar.error);
         setTimeout(() => {
           setAbiertoAlertaPago(false);
         }, 2500);
+      }else {
+        let informe = pago(refrescosSeleccionados, montoPago, montoTotal);
+        setMontoPago(0);
+        setVuelto(0);
+        setRefrescosSeleccionados([
+          { nombre: "Coca-Cola", cantidad: 0 },
+          { nombre: "Fanta", cantidad: 0 },
+          { nombre: "Pepsi", cantidad: 0 },
+          { nombre: "Sprite", cantidad: 0 },
+        ]);
+        setInformePago(informe);
+        setAbrirInformePago(true);
+        setTimeout(() => {
+          setAbrirInformePago(false);
+        } , 8000);
       }
     }
 
     return (
-        <div className="App">
+        <div className={styles.contenedor}>
             <div className={styles.contenido}>
                 <div className={styles.seccionSuperior}>
                     <SeccionRefrescos
@@ -84,6 +105,9 @@ function App() {
                         />
                     </div>
                 </div>
+            </div>
+            <div className={styles.alerta}>
+                <AlertaPago abierto={abrirInformePago} texto={informePago} />
             </div>
         </div>
     );
