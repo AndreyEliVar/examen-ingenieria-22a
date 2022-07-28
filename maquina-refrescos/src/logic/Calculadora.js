@@ -31,7 +31,6 @@ export function calcularCambio (totalPagar, montoIngresado) {
             if (moneda.valor !== 1000) {
                 while (cambio >= moneda.valor && moneda.cantidad > 0) {
                     cambio -= moneda.valor;
-                    moneda.cantidad--;
                     monedas[moneda.id - 1].cantidad++;
                 }
             }

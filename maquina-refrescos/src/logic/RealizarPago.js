@@ -3,7 +3,7 @@ import Monedas from "../Data/Monedas";
 import {calcularCambio} from "./Calculadora"
 
 export function pago (refrescosSeleccionados, montoPago, montoTotal) {
-    let vuelto = calcularCambio(montoTotal, montoPago);
+    let vuelto = calcularCambio(montoTotal, montoPago); //here
 
     refrescosSeleccionados.forEach(refrescoActual => {
         Refrescos.forEach(refresco => {
@@ -17,7 +17,7 @@ export function pago (refrescosSeleccionados, montoPago, montoTotal) {
     vuelto.monedas.forEach(moneda => {
         Monedas.forEach(monedaMaquina => {
             if (moneda.moneda === monedaMaquina.valor) {
-                monedaMaquina.cantidad -= moneda.cantidad;
+                monedaMaquina.cantidad =  monedaMaquina.cantidad - moneda.cantidad;
             }
         }
         )}

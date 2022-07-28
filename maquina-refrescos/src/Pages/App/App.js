@@ -7,7 +7,7 @@ import {calcularTotal, calcularCambio} from "../../logic/Calculadora"
 import {realizarVerificacionPago} from "../../logic/VerificadorErrores"
 import {pago} from "../../logic/RealizarPago"
 import { useState, useEffect } from "react";
-
+import MonedasData from "../../Data/Monedas";
 function App() {
     const [montoPago, setMontoPago] = useState(0);
     const [montoTotal, setMontoTotal] = useState(0);
@@ -16,7 +16,7 @@ function App() {
     const [textoAlertaCantidad, setTextoAlertaCantidad] = useState("");
     const [abiertoAlertaPago, setAbiertoAlertaPago] = useState(false);
     const [textoAlertaPago, setTextoAlertaPago] = useState("");
-    const [informePago, setInformePago] = useState({});
+    const [informePago, setInformePago] = useState(null);
     const [abrirInformePago, setAbrirInformePago] = useState(false);
     const [refrescosSeleccionados, setRefrescosSeleccionados] = useState([
         { nombre: "Coca-Cola", cantidad: 0 },
@@ -31,7 +31,7 @@ function App() {
 
     useEffect(() => {
       if (montoPago > 0 && montoTotal > 0) {
-        let values = calcularCambio(montoTotal, montoPago);
+        let values = calcularCambio(montoTotal, montoPago); //here
         setVuelto(values.cambio);
       }
       if (montoPago === 0) {
@@ -41,8 +41,7 @@ function App() {
 
     const handleClickPago = () => {
       let puedoPagar = realizarVerificacionPago(montoPago, montoTotal);
-      let values = calcularCambio(montoTotal, montoPago);
-      console.log(values);
+      
       if (puedoPagar.puedoPagar === false) {
         setAbiertoAlertaPago(true);
         setTextoAlertaPago(puedoPagar.error);
@@ -50,6 +49,7 @@ function App() {
           setAbiertoAlertaPago(false);
         }, 2500);
       }else {
+        
         let informe = pago(refrescosSeleccionados, montoPago, montoTotal);
         setMontoPago(0);
         setVuelto(0);
@@ -59,14 +59,18 @@ function App() {
           { nombre: "Pepsi", cantidad: 0 },
           { nombre: "Sprite", cantidad: 0 },
         ]);
+        console.log("Monedas Despues", MonedasData);
+        console.log("Informe", informe);
         setInformePago(informe);
         setAbrirInformePago(true);
-        setTimeout(() => {
-          setAbrirInformePago(false);
-        } , 8000);
+        // setTimeout(() => {
+        //   setAbrirInformePago(false);
+        // } , 8000);
       }
     }
 
+    
+    console.log("Monedas en pagina", MonedasData);
     return (
         <div className={styles.contenedor}>
             <div className={styles.contenido}>
@@ -107,7 +111,7 @@ function App() {
                 </div>
             </div>
             <div className={styles.alerta}>
-                <AlertaPago abierto={abrirInformePago} texto={informePago} />
+                <AlertaPago abierto={abrirInformePago} texto={informePago} setAbierto={setAbrirInformePago}/>
             </div>
         </div>
     );
